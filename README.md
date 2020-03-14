@@ -1,4 +1,92 @@
-# XPS15-7590-Hackintosh
+# Dell XPS15 7590 Hackintosh
+
+CloverEFI config/DSDT/kexts for running mac on the Dell XPS 15 7590
+
+Huge thanks to [daliansky](https://github.com/daliansky) who did most of the legwork here.
+
+## System Configuration
+
+This was built and tested using an XPS 15 7590 configured as follows
+
+* i7-9750H
+* FHD panel
+* Samsung 970 EVO NVMe
+* DW1820A WiFi
+
+If you have an SK Hynix NVMe drive you will need to swap it with something that is Mac compatible. 
+Everyone needs to swap their wifi for the DW1820A card, which you can find for around $15 on eBay.
+
+If you are using a different processor or display, your mileage may vary. From what I have read, the OLED panel 
+is having brightness control problems right now.
+
+## Installation
+
+Follow whichever Clover installation path you use and then replace the CLOVER folder in the EFI with this one
+
+## What's working/not working
+
+### Working
+
+* Audio
+* Display/Intel Graphics
+* At least basic processor power management
+* WiFi
+* Sleep
+* Webcam
+* Battery Status
+* Trackpad/Keyboard with gestures/shortcuts
+
+### Not working
+
+* HDMI audio
+* Hot-plug HDMI display
+* Headphone jack after sleep
+* Poor battery life (~3 hours)
+
+### Will never work
+
+* Nvidia Graphics
+* Fingerprint reader
+* SD Card reader
+* Original Killer WiFi (Swap for DW1820A)
+
+## Sources
+
+This would not have been possible without hundreds of hours of time from developers and other gurus.
+
+### Config
+
+* bavariancake
+* daliansky
+
+### DSDT/SSDTs
+
+* bavariancake
+* daliansky
+
+### Kexts
+
+#### [acidanthera](https://github.com/acidanthera)
+
+* Lilu
+* VoodooPS2 (also Rehabman and other ≈original developers)
+* AppleALC
+* WhateverGreen
+* Lilu
+* VirtualSMC
+* AirportBrcmFixup
+* HibernationFixup
+* CPUFriend
+
+#### [alexandred](https://github.com/alexandred)
+
+* VoodooI2C
+
+... and a few more I'll add later
+
+
+
+# Original Readme (from daliansky)
 
 ## 电脑配置
 
