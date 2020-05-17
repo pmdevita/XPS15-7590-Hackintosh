@@ -54,7 +54,7 @@ Follow whichever Clover installation path you use and then replace the CLOVER fo
 
 #### Battery Life
 
-The problem seems to have been caused the by the Nvidia GPU turning on after waking from sleep. This has been fixed so now we'll see if that's all the problem was (testing wasn't exactly thorough)
+The problem seems to have been caused the by the Nvidia GPU turning on after waking from sleep. This has been fixed so now we'll see if that's all the problem was (testing hasn't been exactly thorough)
 
 ## Sources
 
