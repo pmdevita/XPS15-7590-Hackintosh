@@ -17,13 +17,16 @@ DefinitionBlock("", "SSDT", 2, "hack", "_PTSWAK", 0)
     External(RMCF.XPEE, IntObj)
     External(RMCF.SSTF, IntObj)
     External(_SB.PCI0.XHC.PMEE, FieldUnitObj)
-    External(_SI._SST, MethodObj)     
+    External(_SI._SST, MethodObj)
+    
+    External (RMDT.P1, MethodObj)
+    External (RMDT.P2, MethodObj)       
 
     // In DSDT, native _PTS and _WAK are renamed ZPTS/ZWAK
     // As a result, calls to these methods land here.
     Method(_PTS, 1)
     {
-//        \RMDT.P2("_PTS enter", Arg0)
+        \RMDT.P2("_PTS enter", Arg0)
         if (5 == Arg0)
         {
             // Shutdown fix, if enabled
@@ -45,7 +48,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "_PTSWAK", 0)
                 }
             }
         }
-//        \rmdt.p2("this is kinda the worst", \RMCF.DPTS)
+        \rmdt.p2("this is kinda the worst", \RMCF.DPTS)
 
         If (CondRefOf(\RMCF.DPTS))
         {
@@ -54,7 +57,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "_PTSWAK", 0)
                 // enable discrete graphics
                 If (CondRefOf(\_SB.PCI0.PEG0.PEGP._ON)) 
                 { 
-//                    \rmdt.p1("enabling GPU")
+                    \rmdt.p1("enabling GPU")
                     \_SB.PCI0.PEG0.PEGP._ON() 
                 }
             }
@@ -69,11 +72,11 @@ DefinitionBlock("", "SSDT", 2, "hack", "_PTSWAK", 0)
             // XHC.PMEE fix, if enabled
             If (CondRefOf(\RMCF.XPEE)) { If (\RMCF.XPEE && CondRefOf(\_SB.PCI0.XHC.PMEE)) { \_SB.PCI0.XHC.PMEE = 0 } }
         }
-//        \rmdt.p1("_PTS exit")
+        \rmdt.p1("_PTS exit")
     }
     Method(_WAK, 1)
     {
-//        \rmdt.p2("_WAK enter", Arg0)
+        \rmdt.p2("_WAK enter", Arg0)
         // Take care of bug regarding Arg0 in certain versions of OS X...
         // (starting at 10.8.5, confirmed fixed 10.10.2)
         If (Arg0 < 1 || Arg0 > 5) { Arg0 = 3 }
@@ -87,13 +90,13 @@ DefinitionBlock("", "SSDT", 2, "hack", "_PTSWAK", 0)
             {
                 // disable discrete graphics
                 If (CondRefOf(\_SB.PCI0.PEG0.PEGP._OFF)) { 
-//                    \rmdt.p1("disabling GPU")
+                    \rmdt.p1("disabling GPU")
                 \_SB.PCI0.PEG0.PEGP._OFF() 
             }
             }
         }
         \_SB.PCI0.PEG0.PEGP._OFF() 
-//        \rmdt.p1("this is also kinda the worst")
+        \rmdt.p1("this is also kinda the worst")
 
         If (CondRefOf(\RMCF.SSTF))
         {
@@ -106,7 +109,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "_PTSWAK", 0)
         }
 
         // return value from original _WAK
-//        \rmdt.p1("_WAK exit")
+        \rmdt.p1("_WAK exit")
         Return (Local0)
     }
 

@@ -41,7 +41,7 @@ Follow whichever Clover installation path you use and then replace the CLOVER fo
 * HDMI audio
 * Hot-plug HDMI display
 * Headphone jack after sleep
-* Poor battery life (~3 hours)
+* ~~Poor battery life (~3 hours)~~ See notes
 
 ### Will never work
 
@@ -49,6 +49,12 @@ Follow whichever Clover installation path you use and then replace the CLOVER fo
 * Fingerprint reader
 * SD Card reader
 * Original Killer WiFi (Swap for DW1820A)
+
+### Notes
+
+#### Battery Life
+
+The problem seems to have been caused the by the Nvidia GPU turning on after waking from sleep. This has been fixed so now we'll see if that's all the problem was (testing wasn't exactly thorough)
 
 ## Sources
 

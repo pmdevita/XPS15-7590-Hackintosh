@@ -4,6 +4,9 @@
 DefinitionBlock("", "SSDT", 2, "hack", "_RMCF", 0)
 {
 #endif
+
+//    External (RMDT.P2, MethodObj)
+
     Device(RMCF)
     {
         Name(_ADR, 0)   // do not remove
@@ -52,6 +55,8 @@ DefinitionBlock("", "SSDT", 2, "hack", "_RMCF", 0)
         //  0: does not manipulate the DGPU in _WAK and _PTS
         //  1: disables the DGPU in _WAK and enables it in _PTS
         Name(DPTS, 1)
+        
+//        \rmdt.p2("DPTS is set to...", DPTS)
 
         // SHUT: Shutdown fix, disable _PTS code when Arg0==5 (shutdown)
         //
