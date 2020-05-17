@@ -324,12 +324,10 @@
 				<key>Comment-layout-id</key>
 				<string>AppleALC layout-id for ALC298 (ALC3266 according to Dell) audio</string>
 				<key>layout-id</key>
-				<integer>72</integer>
+				<integer>28</integer>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
-				<key>AAPL,ig-platform-id</key>
-				<data>AACbPg==</data>
 				<key>Comment-con1-con2</key>
 				<string>Type C port; can have 2 DisplayPort connectors</string>
 				<key>Comment-con3</key>

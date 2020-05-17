@@ -1,6 +1,6 @@
 # Dell XPS15 7590 Hackintosh
 
-CloverEFI config/DSDT/kexts for running mac on the Dell XPS 15 7590
+CloverEFI config/DSDT/kexts for running MacOS on the Dell XPS 15 7590
 
 Huge thanks to [daliansky](https://github.com/daliansky) who did most of the legwork here.
 
@@ -40,8 +40,8 @@ Follow whichever Clover installation path you use and then replace the CLOVER fo
 
 * HDMI audio
 * Hot-plug HDMI display
-* Headphone jack after sleep
-* ~~Poor battery life (~3 hours)~~ See notes
+* ~~Headphone jack after sleep~~ See notes
+* ~~Poor battery life (\~3 hours)~~ See notes
 
 ### Will never work
 
@@ -55,6 +55,10 @@ Follow whichever Clover installation path you use and then replace the CLOVER fo
 #### Battery Life
 
 The problem seems to have been caused the by the Nvidia GPU turning on after waking from sleep. This has been fixed so now we'll see if that's all the problem was (testing hasn't been exactly thorough)
+
+#### Headphones after sleep
+
+Switching from layout-id 72 to 28 seems to have solved the issue, will mark it off if it seems to stick
 
 ## Sources
 
