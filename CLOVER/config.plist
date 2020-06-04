@@ -15,7 +15,7 @@
 			<key>Fixes</key>
 			<dict>
 				<key>Comment-FixUSB</key>
-				<string>Definitely no - injects USB-specific _DSM into IGPU region, which we don&apos;t want</string>
+				<string>Definitely no - injects USB-specific _DSM into IGPU region, which we don't want</string>
 				<key>FixHPET</key>
 				<false/>
 				<key>FixIPIC</key>
@@ -101,7 +101,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>Change HDAS to HDEF (needed for audio)</string>
+					<string>Change HDAS to HDEF (needed by AppleALC but WG says it does it itself?)</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -113,7 +113,7 @@
 					<key>Comment</key>
 					<string>Change HECI to IMEI (so Mac OS can natively use the Management Engine)</string>
 					<key>Disabled</key>
-					<false/>
+					<true/>
 					<key>Find</key>
 					<data>SEVDSQ==</data>
 					<key>Replace</key>
@@ -123,7 +123,7 @@
 					<key>Comment</key>
 					<string>Change GFX0 to IGPU (needed for graphics)</string>
 					<key>Disabled</key>
-					<false/>
+					<true/>
 					<key>Find</key>
 					<data>R0ZYMA==</data>
 					<key>Replace</key>
@@ -193,7 +193,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>Rename method GPRW to YPRW and use with SSDT-UPRW.aml to fix USB &quot;instant wake&quot; on sleep</string>
+					<string>Rename method GPRW to YPRW and use with SSDT-UPRW.aml to fix USB "instant wake" on sleep</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -203,7 +203,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>Rename method UPRW to XPRW and use with SSDT-UPRW.aml to fix USB &quot;instant wake&quot; on sleep</string>
+					<string>Rename method UPRW to XPRW and use with SSDT-UPRW.aml to fix USB "instant wake" on sleep</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -245,6 +245,16 @@
 					<key>TgtBridge</key>
 					<data>STJDMA==</data>
 				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>Rename SAT0 to SATA (Disk)</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>U0FUMA==</data>
+					<key>Replace</key>
+					<data>U0FUQQ==</data>
+				</dict>
 			</array>
 		</dict>
 		<key>DisabledAML</key>
@@ -272,6 +282,10 @@
 				<key>TableId</key>
 				<string>xh_cfhd4</string>
 			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>MATS</string>
+			</dict>
 		</array>
 		<key>FixHeaders</key>
 		<true/>
@@ -291,7 +305,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>-v dart=0 nv_disable=1 -cdfon agdpmod=vit9696 brcmfx-country=#a</string>
+		<string>-v dart=0 debug=0x100 -cdfon agdpmod=vit9696 brcmfx-country=#a -wegnoegpu keepsyms=1</string>
 		<key>DefaultVolume</key>
 		<string>LastBootedVolume</string>
 		<key>NeverHibernate</key>
@@ -314,17 +328,25 @@
 		</dict>
 		<key>Properties</key>
 		<dict>
+			<key>PciRoot(0)/Pci(0x1f,3)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal</string>
+				<key>Comment-layout-id</key>
+				<string>AppleALC layout-id for ALC298 (ALC3266 according to Dell) audio</string>
+				<key>device_type</key>
+				<string>Audio device</string>
+				<key>hda-gfx</key>
+				<string>onboard-1</string>
+				<key>layout-id</key>
+				<integer>28</integer>
+				<key>model</key>
+				<string>Cannon Lake PCH cAVS</string>
+			</dict>
 			<key>PciRoot(0x0)/Pci(0x1c,0x0)/Pci(0x0)</key>
 			<dict>
 				<key>pci-aspm-default</key>
 				<integer>0</integer>
-			</dict>
-			<key>PciRoot(0)/Pci(0x1f,3)</key>
-			<dict>
-				<key>Comment-layout-id</key>
-				<string>AppleALC layout-id for ALC298 (ALC3266 according to Dell) audio</string>
-				<key>layout-id</key>
-				<integer>28</integer>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
@@ -469,7 +491,7 @@
 		<key>KernelLapic</key>
 		<false/>
 		<key>KernelPm</key>
-		<true/>
+		<false/>
 		<key>KernelToPatch</key>
 		<array>
 			<dict>
@@ -507,6 +529,23 @@
 				<data>igKEwOtC</data>
 			</dict>
 		</array>
+		<key>KextsToPatch</key>
+		<array>
+			<dict>
+				<key>Comment</key>
+				<string>Enable PCI power management if there is no such code in DSDT, 10.9.*, 10.10.* (credit Zenith432)</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>dU1Ii7voAQAA</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>Name</key>
+				<string>com.apple.driver.AppleUSBXHCI</string>
+				<key>Replace</key>
+				<data>601Ii7voAQAA</data>
+			</dict>
+		</array>
 	</dict>
 	<key>RtVariables</key>
 	<dict>
@@ -516,13 +555,15 @@
 		<string>Disable System Integrity Protection (SIP)</string>
 		<key>CsrActiveConfig</key>
 		<string>0x3E7</string>
+		<key>ROM</key>
+		<string>UseMacAddr0</string>
 	</dict>
 	<key>SMBIOS</key>
 	<dict>
 		<key>BoardSerialNumber</key>
 		<string>XX-MASKED-XX</string>
 		<key>ProductName</key>
-		<string>MacBookPro15,1</string>
+		<string>MacBookPro16,1</string>
 	</dict>
 	<key>SystemParameters</key>
 	<dict>
