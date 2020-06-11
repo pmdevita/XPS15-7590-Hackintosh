@@ -48,7 +48,7 @@ Follow whichever Clover installation path you use and then replace the CLOVER fo
 * Nvidia Graphics
 * Fingerprint reader
 * SD Card reader
-* Original Killer WiFi (Swap for DW1820A)
+* Original Killer WiFi (Swap for ~~DW1820A~~ The DW1820A requires pin masking to enable full power management, you may want to choose something else from [here](https://dortania.github.io/Wireless-Buyers-Guide/types-of-wireless-card/m2.html)). 
 
 ### Notes
 
