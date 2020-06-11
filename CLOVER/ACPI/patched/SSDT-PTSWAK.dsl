@@ -59,6 +59,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "_PTSWAK", 0)
                 }
             }
         }
+// This is where the actual business happens
         \_SB.PCI0.PEG0.PEGP._ON()
 
         // call into original _PTS method
