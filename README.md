@@ -11,7 +11,7 @@ This was built and tested using an XPS 15 7590 configured as follows
 * i7-9750H
 * FHD panel
 * Samsung 970 EVO NVMe
-* DW1820A WiFi
+* DW1820A WiFi (See notes)
 
 If you have an SK Hynix NVMe drive you will need to swap it with something that is Mac compatible. 
 Everyone needs to swap their wifi for the DW1820A card, which you can find for around $15 on eBay.
@@ -48,7 +48,7 @@ Follow whichever Clover installation path you use and then replace the CLOVER fo
 * Nvidia Graphics
 * Fingerprint reader
 * SD Card reader
-* Original Killer WiFi (Swap for ~~DW1820A~~ The DW1820A requires pin masking to enable full power management, you may want to choose something else from [here](https://dortania.github.io/Wireless-Buyers-Guide/types-of-wireless-card/m2.html)). 
+* Original Killer WiFi (See notes)
 
 ### Notes
 
@@ -59,6 +59,13 @@ The problem seems to have been caused the by the Nvidia GPU turning on after wak
 #### Headphones after sleep
 
 Switching from layout-id 72 to 28 seems to have solved the issue, will mark it off if it seems to stick
+
+#### Wi-FI
+
+I'm using the DW1820A. However, this card requires pin masking to enable full power management, which is a hassle and a risk and is therefore not a recommended card. You may want to choose something else from [here](https://dortania.github.io/Wireless-Buyers-Guide/types-of-wireless-card/m2.html)). You'll then want to disable the power management patch (pci-aspm) in the config.plist for Wi-Fi.
+
+For those of you who decide to go with this card anyways, the config already has a patch to disable power management so you can use the card. Do note that without full power management, the card pulls like another 4W so it's not great for battery life. If you want to try pin masking, google "DW1820A Hackintosh pin masking" and be ready for the challenge. If you pass though, you can disable the power management patch (pci-aspm) and get full power management. Pin masking seems to have no effect on Windows but I'm currently running into Wi-Fi problems in Linux that I'm not sure are related.
+
 
 ## Sources
 
