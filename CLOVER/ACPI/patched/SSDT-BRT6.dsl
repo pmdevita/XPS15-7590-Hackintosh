@@ -20,11 +20,11 @@
  */
 DefinitionBlock ("", "SSDT", 2, "hack", "BRT6", 0x00000000)
 {
-    External (_SB_.PCI0.IGPU, DeviceObj)    // (from opcode)
-    External (_SB_.PCI0.IGPU.LCD_, DeviceObj)    // (from opcode)
+    External (_SB_.PCI0.GFX0, DeviceObj)    // (from opcode)
+    External (_SB_.PCI0.GFX0.LCD_, DeviceObj)    // (from opcode)
     External (_SB_.PCI0.LPCB.PS2K, DeviceObj)    // (from opcode)
 
-    Scope (_SB.PCI0.IGPU)
+    Scope (_SB.PCI0.GFX0)
     {
         Method (BRT6, 2, NotSerialized)
         {

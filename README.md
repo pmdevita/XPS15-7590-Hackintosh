@@ -2,7 +2,7 @@
 
 CloverEFI config/DSDT/kexts for running MacOS on the Dell XPS 15 7590
 
-Huge thanks to [daliansky](https://github.com/daliansky) who did most of the legwork here.
+Huge thanks to [daliansky](https://github.com/daliansky) who did most of the legwork here. I also redid several of the SSDTs to double check his work but I came up with pretty much the same things he did.
 
 ## System Configuration
 
@@ -29,19 +29,17 @@ Follow whichever Clover installation path you use and then replace the CLOVER fo
 
 * Audio
 * Display/Intel Graphics
-* At least basic processor power management
-* WiFi
+* Pretty good power management (see notes)
+* WiFi (Replacement card, see notes)
 * Sleep
 * Webcam
 * Battery Status
 * Trackpad/Keyboard with gestures/shortcuts
+* Brightness keys
 
 ### Not working
 
-* HDMI audio
-* Hot-plug HDMI display
-* ~~Headphone jack after sleep~~ See notes
-* ~~Poor battery life (\~3 hours)~~ See notes
+* HDMI/USB-C video out (see notes)
 
 ### Will never work
 
@@ -54,18 +52,33 @@ Follow whichever Clover installation path you use and then replace the CLOVER fo
 
 #### Battery Life
 
-The problem seems to have been caused the by the Nvidia GPU turning on after waking from sleep. This has been fixed so now we'll see if that's all the problem was (testing hasn't been exactly thorough)
+Battery life isn't perfect but you can get some decent results. 
+
+* Disable SD card and Thunderbolt in BIOS (you can re-enable if needed but they just passively draw power)
+* [Disable CFG Lock](https://github.com/pmdevita/XPS15-7590-Hackintosh/issues/2)
+* Use [coconutBattery[(https://www.coconut-flavour.com/coconutbattery/) to see what your power draw in watts is.
+
 
 #### Headphones after sleep
 
-Switching from layout-id 72 to 28 seems to have solved the issue, will mark it off if it seems to stick
+Follow the guide [here](https://github.com/pmdevita/XPS15-7590-Hackintosh/issues/3)
 
 #### Wi-FI
 
-I'm using the DW1820A. However, this card requires pin masking to enable full power management, which is a hassle and a risk and is therefore not a recommended card. You may want to choose something else from [here](https://dortania.github.io/Wireless-Buyers-Guide/types-of-wireless-card/m2.html)). You'll then want to disable the power management patch (pci-aspm) in the config.plist for Wi-Fi.
+I'm using the DW1820A. However, this card requires pin masking to enable full power management (literally, masking the pins on the card with tape), which is a hassle and a risk and therefore it is not a recommended card. Choose something else from [here](https://dortania.github.io/Wireless-Buyers-Guide/types-of-wireless-card/m2.html)). You'll then want to disable the power management patch (pci-aspm) in the config.plist for Wi-Fi.
 
-For those of you who decide to go with this card anyways, the config already has a patch to disable power management so you can use the card. Do note that without full power management, the card pulls like another 4W so it's not great for battery life. If you want to try pin masking, google "DW1820A Hackintosh pin masking" and be ready for the challenge. If you pass though, you can disable the power management patch (pci-aspm) and get full power management. Pin masking seems to have no effect on Windows but I'm currently running into Wi-Fi problems in Linux that I'm not sure are related.
+For those of you who decide to go with this card anyways, the config already has a patch to disable power management so you can use the card. Do note that without full power management, the card pulls like another 4W so it's not great for battery life. If you want to try pin masking, google "DW1820A Hackintosh pin masking" and be ready for the challenge. If you pass though, you can disable the power management patch (pci-aspm) and get full power management. Pin masking seems to have no effect on Windows or Linux (but apparently this card is a little buggy in Linux so that's another reason to avoid it).
 
+#### HDMI/Display Out
+
+The XPS 15 has some odd display out hardware (LSPCON) and while the community has written some driver support, it is still lacking ([see here](https://github.com/bavariancake/XPS9570-macOS#audio)).
+
+Here's the rundown:
+
+* HDMI port: No hotplugging, no audio
+* Display out over USB-C: Hotplugging allowed, no audio
+
+I can't make any guarantees since I don't know for sure but at some point I will be taking a look into patching WhateverGreen to completely fix this.
 
 ## Sources
 
@@ -75,6 +88,7 @@ This would not have been possible without hundreds of hours of time from develop
 
 * bavariancake
 * daliansky
+* Other XPS 15 7590 config makers (I'll add them later)
 
 ### DSDT/SSDTs
 
@@ -86,7 +100,7 @@ This would not have been possible without hundreds of hours of time from develop
 #### [acidanthera](https://github.com/acidanthera)
 
 * Lilu
-* VoodooPS2 (also Rehabman and other ≈original developers)
+* VoodooPS2 (also Rehabman and other original developers)
 * AppleALC
 * WhateverGreen
 * Lilu
@@ -94,10 +108,28 @@ This would not have been possible without hundreds of hours of time from develop
 * AirportBrcmFixup
 * HibernationFixup
 * CPUFriend
+* NVMeFix
+* VirtualSMC
+* BT4LEContinuityFixup
+* BrcmPatchRAM
+* CPUFriend
 
 #### [alexandred](https://github.com/alexandred)
 
 * VoodooI2C
+
+#### Dolnor
+
+* CodecCommander (also Rehabman)
+
+#### al3xtjames
+
+* NoTouchID
+
+#### RehabMan
+
+* USBInjectAll
+
 
 ... and a few more I'll add later
 

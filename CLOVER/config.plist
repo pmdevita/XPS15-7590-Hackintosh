@@ -331,7 +331,7 @@
 			<key>PciRoot(0)/Pci(0x1f,3)</key>
 			<dict>
 				<key>layout-id</key>
-				<integer>16</integer>
+				<integer>30</integer>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1c,0x0)/Pci(0x0)</key>
 			<dict>
