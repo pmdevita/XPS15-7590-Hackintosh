@@ -4,7 +4,7 @@ CloverEFI config/DSDT/kexts for running MacOS on the Dell XPS 15 7590. Check the
 
 Huge thanks to [daliansky](https://github.com/daliansky) who did most of the legwork here. I also redid several of the SSDTs to double check his work but I came up with pretty much the same things he did.
 
-I occasionally update this repo with fixes and new drivers that I have tested so check back every few months. You can see what I've changed recently in the [commit log](https://github.com/pmdevita/XPS15-7590-Hackintosh/commits/master)
+I occasionally update this repo with fixes and new drivers that I have tested so check back every few months. You can see what I've changed recently in the [commit log](https://github.com/pmdevita/XPS15-7590-Hackintosh/commits/master).
 
 ## System Configuration
 
@@ -71,9 +71,9 @@ Battery life isn't perfect but you can get some decent results.
 
 #### Wi-FI
 
-I'm using the DW1820A. However, this card requires pin masking to enable full power management (literally, masking the pins on the card with tape), which is a hassle and a risk and therefore it is not a recommended card. Choose something else from [here](https://dortania.github.io/Wireless-Buyers-Guide/types-of-wireless-card/m2.html)). You'll then want to disable the power management patch (pci-aspm) in the config.plist for Wi-Fi.
+I'm using the DW1820A. However, this card requires pin masking to enable full power management (literally, masking the pins on the card with tape), which is a hassle and a risk and therefore it is not a recommended card. Choose something else from [here](https://dortania.github.io/Wireless-Buyers-Guide/types-of-wireless-card/m2.html)). ~~You'll then want to disable the power management patch (pci-aspm) in the config.plist for Wi-Fi.~~ UPDATE: New versions of AirportBrcmFixup already do this automatically.
 
-For those of you who decide to go with this card anyways, the config already has a patch to disable power management so you can use the card. Do note that without full power management, the card pulls like another 4W so it's not great for battery life. If you want to try pin masking, google "DW1820A Hackintosh pin masking" and be ready for the challenge. If you pass though, you can disable the power management patch (pci-aspm) and get full power management. Pin masking seems to have no effect on Windows or Linux (but apparently this card is a little buggy in Linux so that's another reason to avoid it).
+For those of you who decide to go with this card anyways, the config already has a patch to disable power management so you can use the card. Do note that without full power management, the card pulls like another 4W so it's not great for battery life. If you want to try pin masking, google "DW1820A Hackintosh pin masking" and be ready for the challenge. If you pass though, you can use the PCI patch in the dw1820a config to enable power management. Pin masking seems to have no effect on Windows or Linux (but apparently this card is a little buggy in Linux so that's another reason to avoid it).
 
 #### HDMI/Display Out
 
