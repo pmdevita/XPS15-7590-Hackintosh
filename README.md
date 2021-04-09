@@ -1,8 +1,10 @@
-# Dell XPS15 7590 Hackintosh
+# Dell XPS15 7590 Hackintosh (Clover/10.15)
 
-CloverEFI config/DSDT/kexts for running MacOS on the Dell XPS 15 7590
+CloverEFI config/DSDT/kexts for running MacOS on the Dell XPS 15 7590. Check the other branch for the work on moving to OpenCore and macOS 11. This branch is going to stop being supported as soon as OC/11 is working.
 
 Huge thanks to [daliansky](https://github.com/daliansky) who did most of the legwork here. I also redid several of the SSDTs to double check his work but I came up with pretty much the same things he did.
+
+I occasionally update this repo with fixes and new drivers that I have tested so check back every few months. You can see what I've changed recently in the [commit log](https://github.com/pmdevita/XPS15-7590-Hackintosh/commits/master)
 
 ## System Configuration
 
@@ -37,9 +39,13 @@ Follow whichever Clover installation path you use and then replace the CLOVER fo
 * Trackpad/Keyboard with gestures/shortcuts
 * Brightness keys
 
+If these things are not working for you then open an issue.
+
 ### Not working
 
 * HDMI/USB-C video out (see notes)
+
+If you have any info on how to fix this, open an issue.
 
 ### Will never work
 
@@ -56,12 +62,12 @@ Battery life isn't perfect but you can get some decent results.
 
 * Disable SD card and Thunderbolt in BIOS (you can re-enable if needed but they just passively draw power)
 * [Disable CFG Lock](https://github.com/pmdevita/XPS15-7590-Hackintosh/issues/2)
-* Use [coconutBattery[(https://www.coconut-flavour.com/coconutbattery/) to see what your power draw in watts is.
+* Use [coconutBattery](https://www.coconut-flavour.com/coconutbattery/) to see what your power draw in watts is.
 
 
 #### Headphones after sleep
 
-Follow the guide [here](https://github.com/pmdevita/XPS15-7590-Hackintosh/issues/3)
+~~Follow the guide [here](https://github.com/pmdevita/XPS15-7590-Hackintosh/issues/3)~~ UPDATE: Go to that guide and follow the instructions to uninstall, more details there. If you never installed ALCPlug298 then you should be good to go on my latest EFI
 
 #### Wi-FI
 
