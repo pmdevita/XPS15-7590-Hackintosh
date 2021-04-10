@@ -16,38 +16,6 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-AWAC.aml</string>
-				<key>Path</key>
-				<string>SSDT-AWAC.aml</string>
-				<key>Enabled</key>
-				<true/>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>SSDT-EC.aml</string>
-				<key>Path</key>
-				<string>SSDT-EC.aml</string>
-				<key>Enabled</key>
-				<true/>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>SSDT-PLUG.aml</string>
-				<key>Path</key>
-				<string>SSDT-PLUG.aml</string>
-				<key>Enabled</key>
-				<true/>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>SSDT-PMC.aml</string>
-				<key>Path</key>
-				<string>SSDT-PMC.aml</string>
-				<key>Enabled</key>
-				<true/>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>SSDT-ADP1.aml</string>
 				<key>Path</key>
 				<string>SSDT-ADP1.aml</string>
@@ -64,9 +32,25 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
+				<string>SSDT-AWAC.aml</string>
+				<key>Path</key>
+				<string>SSDT-AWAC.aml</string>
+				<key>Enabled</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>SSDT-BATC.aml</string>
 				<key>Path</key>
 				<string>SSDT-BATC.aml</string>
+				<key>Enabled</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>SSDT-BRT6.aml</string>
+				<key>Path</key>
+				<string>SSDT-BRT6.aml</string>
 				<key>Enabled</key>
 				<true/>
 			</dict>
@@ -91,6 +75,14 @@
 				<string>SSDT-DMAC.aml</string>
 				<key>Path</key>
 				<string>SSDT-DMAC.aml</string>
+				<key>Enabled</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>SSDT-EC.aml</string>
+				<key>Path</key>
+				<string>SSDT-EC.aml</string>
 				<key>Enabled</key>
 				<true/>
 			</dict>
@@ -171,6 +163,22 @@
 				<string>SSDT-MEM2.aml</string>
 				<key>Path</key>
 				<string>SSDT-MEM2.aml</string>
+				<key>Enabled</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>SSDT-PLUG.aml</string>
+				<key>Path</key>
+				<string>SSDT-PLUG.aml</string>
+				<key>Enabled</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>SSDT-PMC.aml</string>
+				<key>Path</key>
+				<string>SSDT-PMC.aml</string>
 				<key>Enabled</key>
 				<true/>
 			</dict>
@@ -259,14 +267,6 @@
 				<string>SSDT-XHC.aml</string>
 				<key>Path</key>
 				<string>SSDT-XHC.aml</string>
-				<key>Enabled</key>
-				<true/>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>SSDT-XOSI.aml</string>
-				<key>Path</key>
-				<string>SSDT-XOSI.aml</string>
 				<key>Enabled</key>
 				<true/>
 			</dict>
@@ -422,45 +422,53 @@
 		<dict>
 			<key>PciRoot(0x0)/Pci(0x1b,0x0)</key>
 			<dict>
-				<key>Comment-fb-portcount</key>
-				<string>There are 4 ports: internal LCD, Type C DP 1 and 2, and HDMI</string>
-				<key>framebuffer-con2-enable</key>
+				<key>AAPL,ig-platform-id</key>
+				<data>CQCbPg==</data>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,2,0</string>
+				<key>device_type</key>
+				<string>VGA compatible controller</string>
+				<key>hda-gfx</key>
+				<string>onboard-1</string>
+				<key>model</key>
+				<string>Intel UHD Graphics 630 (Mobile)</string>
+				<key>enable-lspcon-support</key>
+				<data>AQAAAA==</data>
+				<key>framebuffer-con3-has-lspcon</key>
 				<data>AQAAAA==</data>
 				<key>framebuffer-con2-alldata</key>
 				<data>AgYJAAAEAACHAQAA</data>
-				<key>Comment-con1-con2</key>
-				<string>Type C port; can have 2 DisplayPort connectors</string>
-				<key>enable-backlight-registers-fix</key>
+				<key>framebuffer-patch-enable</key>
 				<data>AQAAAA==</data>
+				<key>framebuffer-unifiedmem</key>
+				<data>AAAAgA==</data>
 				<key>framebuffer-portcount</key>
 				<data>BAAAAA==</data>
-				<key>device-id</key>
-				<data>mz4AAA==</data>
-				<key>Comment-con3</key>
-				<string>HDMI port</string>
-				<key>enable-dpcd-max-link-rate-fix</key>
+				<key>disable-external-gpu</key>
+				<data>AQAAAA==</data>
+				<key>enable-hdmi-dividers-fix</key>
 				<data>AQAAAA==</data>
 				<key>enable-hdmi20</key>
 				<data>AQAAAA==</data>
 				<key>framebuffer-con3-alldata</key>
 				<data>AwQKAAAIAACHAQAA</data>
-				<key>framebuffer-patch-enable</key>
-				<data>AQAAAA==</data>
 				<key>framebuffer-con1-alldata</key>
 				<data>AQUJAAAEAACHAQAA</data>
 				<key>framebuffer-con3-enable</key>
 				<data>AQAAAA==</data>
-				<key>Comment-dpcd-max-link-rate</key>
-				<string>0x14 for 4k displays, or 0x0a for 1080p</string>
+				<key>framebuffer-con2-enable</key>
+				<data>AQAAAA==</data>
 				<key>framebuffer-con1-enable</key>
 				<data>AQAAAA==</data>
-				<key>dpcd-max-link-rate</key>
-				<data>FAAAAA==</data>
+				<key>enable-dpcd-max-link-rate-fix</key>
+				<data>AQAAAA==</data>
+				<key>enable-backlight-registers-fix</key>
+				<data>AQAAAA==</data>
 			</dict>
 			<key>PciRoot(0)/Pci(0x1f,3)</key>
 			<dict>
-				<key>layout-id</key>
-				<integer>30</integer>
+				<key>#layout-id</key>
+				<data>HgAAAA==</data>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1c,0x0)/Pci(0x0)</key>
 			<dict>
@@ -649,11 +657,29 @@
 				<key>MinKernel</key>
 				<string></string>
 				<key>ExecutablePath</key>
-				<string>Contents/MacOS/BrcmPatchRAM2</string>
+				<string>Contents/MacOS/BrcmPatchRAM3</string>
 				<key>Arch</key>
 				<string>Any</string>
 				<key>BundlePath</key>
-				<string>BrcmPatchRAM2.kext</string>
+				<string>BrcmPatchRAM3.kext</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string></string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>Enabled</key>
+				<true/>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/BrightnessKeys</string>
+				<key>Arch</key>
+				<string>Any</string>
+				<key>BundlePath</key>
+				<string>BrightnessKeys.kext</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -805,7 +831,7 @@
 				<key>MaxKernel</key>
 				<string></string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 				<key>MinKernel</key>
@@ -1136,7 +1162,9 @@
 	<key>Misc</key>
 	<dict>
 		<key>BlessOverride</key>
-		<array/>
+		<array>
+			<string>\EFI\EndeavourOS\grubx64.efi</string>
+		</array>
 		<key>Boot</key>
 		<dict>
 			<key>ConsoleAttributes</key>
@@ -1443,11 +1471,7 @@
 				<key>SystemAudioVolume</key>
 				<data>Rg==</data>
 				<key>boot-args</key>
-				<string>-v debug=0x100 keepsyms=1 alcid=30 agdpmod=vit9696 brcmfx-country=#a -wegnoegpu igfxonln=1</string>
-				<key>csr-active-config</key>
-				<data>AAAAAA==</data>
-				<key>prev-lang:kbd</key>
-				<data></data>
+				<string>-v debug=0x100 keepsyms=1 agdpmod=vit9696 brcmfx-country=#a -wegnoegpu igfxonln=1 alcid=72 -igfxmlr -alcdbg -liludbg alcdelay=1000</string>
 				<key>run-efi-updater</key>
 				<string>No</string>
 			</dict>
@@ -1600,11 +1624,11 @@
 		<true/>
 		<key>Drivers</key>
 		<array>
-			<string>OpenHfsPlus.efi</string>
-			<string>OpenRuntime.efi</string>
 			<string>AudioDxe.efi</string>
 			<string>OpenCanopy.efi</string>
+			<string>OpenHfsPlus.efi</string>
 			<string>OpenPartitionDxe.efi</string>
+			<string>OpenRuntime.efi</string>
 			<string>Ps2KeyboardDxe.efi</string>
 			<string>UsbMouseDxe.efi</string>
 		</array>
