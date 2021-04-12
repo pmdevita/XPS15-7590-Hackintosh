@@ -1487,7 +1487,7 @@
 				<key>SystemAudioVolume</key>
 				<data>Rg==</data>
 				<key>boot-args</key>
-				<string>-v debug=0x100 keepsyms=1 agdpmod=vit9696 brcmfx-country=#a -wegnoegpu -igfxmlr -alcdbg -liludbg alcdelay=1000 -brkeysdbg</string>
+				<string>-v debug=0x100 keepsyms=1 agdpmod=vit9696 brcmfx-country=#a -wegnoegpu -igfxtypec -alcdbg -liludbg alcdelay=1000 -brkeysdbg</string>
 				<key>run-efi-updater</key>
 				<string>No</string>
 			</dict>
