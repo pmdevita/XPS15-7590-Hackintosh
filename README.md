@@ -60,9 +60,11 @@ If you have any info on how to fix this, open an issue.
 
 Battery life isn't perfect but you can get some decent results. 
 
-* Disable SD card and Thunderbolt in BIOS (you can re-enable if needed but they just passively draw power)
+* Disable SD Card, Thunderbolt(?), and USB PowerShare in the BIOS (SD Card and USB PowerShare each add about a watt so they are quite useful to disable).
 * [Disable CFG Lock](https://github.com/pmdevita/XPS15-7590-Hackintosh/issues/2)
 * Use [coconutBattery](https://www.coconut-flavour.com/coconutbattery/) to see what your power draw in watts is.
+
+At about half brightness and idle, I was able to get down to about 5.2W which is pretty good for a Hackintosh laptop from what I understand.
 
 
 #### Headphones after sleep
