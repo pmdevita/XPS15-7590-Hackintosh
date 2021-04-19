@@ -92,7 +92,7 @@
 				<key>Path</key>
 				<string>SSDT-HDAU.aml</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -100,7 +100,7 @@
 				<key>Path</key>
 				<string>SSDT-HDEF.aml</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -355,32 +355,6 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>BRT6 to BRTX Rename</string>
-				<key>Count</key>
-				<integer>0</integer>
-				<key>Enabled</key>
-				<false/>
-				<key>Find</key>
-				<data>FCBCUlQ2Ag==</data>
-				<key>Limit</key>
-				<integer>0</integer>
-				<key>Mask</key>
-				<data></data>
-				<key>OemTableId</key>
-				<data>AAAAAA==</data>
-				<key>Replace</key>
-				<data>FCBCUlRYAg==</data>
-				<key>ReplaceMask</key>
-				<data></data>
-				<key>Skip</key>
-				<integer>0</integer>
-				<key>TableLength</key>
-				<integer>0</integer>
-				<key>TableSignature</key>
-				<data>AAAAAA==</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>BRT6 to BRTX Rename giugrilli</string>
 				<key>Count</key>
 				<integer>0</integer>
@@ -571,7 +545,7 @@
 			</dict>
 			<key>PciRoot(0)/Pci(0x1f,3)</key>
 			<dict>
-				<key>#layout-id</key>
+				<key>layout-id</key>
 				<integer>30</integer>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1c,0x0)/Pci(0x0)</key>
@@ -1188,7 +1162,7 @@
 			<key>AppleCpuPmCfgLock</key>
 			<false/>
 			<key>AppleXcpmCfgLock</key>
-			<true/>
+			<false/>
 			<key>AppleXcpmExtraMsrs</key>
 			<false/>
 			<key>AppleXcpmForceBoost</key>
@@ -1539,7 +1513,7 @@
 				<key>SystemAudioVolume</key>
 				<data>Rg==</data>
 				<key>boot-args</key>
-				<string>-v debug=0x100 keepsyms=1 agdpmod=vit9696 brcmfx-country=#a -wegnoegpu -igfxtypec -alcdbg -liludbg alcid=30 alcdelay=1000 -brkeysdbg</string>
+				<string>-v debug=0x100 keepsyms=1 agdpmod=vit9696 brcmfx-country=#a -wegnoegpu -igfxtypec alcdelay=300</string>
 				<key>run-efi-updater</key>
 				<string>No</string>
 			</dict>
