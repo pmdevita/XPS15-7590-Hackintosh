@@ -21,10 +21,6 @@ Everyone needs to swap their wifi for the DW1820A card, which you can find for a
 If you are using a different processor or display, your mileage may vary. From what I have read, the OLED panel 
 is having brightness control problems right now.
 
-## Installation
-
-Follow whichever Clover installation path you use and then replace the CLOVER folder in the EFI with this one
-
 ## What's working/not working
 
 ### Working
