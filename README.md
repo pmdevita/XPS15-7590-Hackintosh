@@ -55,7 +55,7 @@ If you have any info on how to fix this, open an issue.
 
 1. Read and follow the Dortania guides. This config is more of a reference for how the laptop should be configured, you should still know the process as if you were doing it.
 
-2. Use GenSMBIOS to create new SMBIOS keys for your config.
+2. Use GenSMBIOS to create new SMBIOS keys for your config. I recommend using a `MacbookPro16,1` profile.
 
 3. Specific notes for certain hardware
 
@@ -88,7 +88,7 @@ I'm using the DW1820A. However, this card requires pin masking to enable full po
 
 For those of you who decide to go with this card anyways, do note that without full power management, the card pulls like another 4W so it's not great for battery life. If you want to try pin masking, google "DW1820A Hackintosh pin masking" and be ready for the challenge.
 
-#### HDMI/Display Out
+### HDMI/Display Out
 
 The XPS 15 has some odd display out hardware (LSPCON) and while the community has written some driver support, it is still lacking ([see here](https://github.com/bavariancake/XPS9570-macOS#audio)).
 
