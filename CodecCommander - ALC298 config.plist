@@ -60,3 +60,8 @@
 					<key>Perform Reset on EAPD Fail</key>
 					<false/>
 				</dict>
+			</dict>
+		</dict>
+	</dict>	
+</dict>
+</plist>

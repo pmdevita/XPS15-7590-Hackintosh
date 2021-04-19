@@ -1,8 +1,8 @@
-# Dell XPS15 7590 Hackintosh (Clover/10.15)
+# Dell XPS 15 7590 Hackintosh (OpenCore/10.15+)
 
-CloverEFI config/DSDT/kexts for running MacOS on the Dell XPS 15 7590. Check the other branch for the work on moving to OpenCore and macOS 11. This branch is going to stop being supported as soon as OC/11 is working.
+![Screenshot](https://i.imgur.com/5EK9d1x.png)
 
-Huge thanks to [daliansky](https://github.com/daliansky) who did most of the legwork here. I also redid several of the SSDTs to double check his work but I came up with pretty much the same things he did.
+Here is my OpenCore config (and old CloverEFI config for now) I made for my XPS 15 7590. I started and referenced a lot from [daliansky](https://github.com/daliansky) build but I redid or validated a lot of their work.
 
 I occasionally update this repo with fixes and new drivers that I have tested so check back every few months. You can see what I've changed recently in the [commit log](https://github.com/pmdevita/XPS15-7590-Hackintosh/commits/master).
 
@@ -44,6 +44,7 @@ If these things are not working for you then open an issue.
 ### Not working
 
 * HDMI/USB-C video out (see notes)
+* Headphones plugged in while sleeping will have to be plugged in again after resuming
 
 If you have any info on how to fix this, open an issue.
 
@@ -54,28 +55,42 @@ If you have any info on how to fix this, open an issue.
 * SD Card reader
 * Original Killer WiFi (See notes)
 
-### Notes
+## Instructions
+
+1. Read and follow the Dortania guides. This config is more of a reference for how the laptop should be configured, you should still know the process as if you were doing it.
+
+2. Use GenSMBIOS to create new SMBIOS keys for your config.
+
+3. Specific notes for certain hardware
+
+- WiFi - If you are using the DW1820A card and haven't masked your pins OR if you are not using this card at all, delete the `brcmfx-aspm` property.
+- CFG Lock - If you haven't removed your CFG Lock, make sure `AppleXcpmCfgLock` is True.
+
+## Notes
+
+### CFG Lock
+
+[See here](https://github.com/pmdevita/XPS15-7590-Hackintosh/issues/2)
 
 #### Battery Life
 
-Battery life isn't perfect but you can get some decent results. 
-
-* Disable SD Card, Thunderbolt(?), and USB PowerShare in the BIOS (SD Card and USB PowerShare each add about a watt so they are quite useful to disable).
+Idle power draw is comparable to Windows if you disable SD Card, Thunderbolt(?), and USB PowerShare in the BIOS (SD Card and USB PowerShare each add about a watt so they are quite useful to disable). 
 * [Disable CFG Lock](https://github.com/pmdevita/XPS15-7590-Hackintosh/issues/2)
 * Use [coconutBattery](https://www.coconut-flavour.com/coconutbattery/) to see what your power draw in watts is.
 
-At about half brightness and idle, I was able to get down to about 5.2W which is pretty good for a Hackintosh laptop from what I understand.
-
+At about half brightness and idle, I was able to get down to about 5.2W which is pretty good for a Hackintosh laptop from what I understand. Windows gets about 5.1W when idle on my computer so it's pretty close.
 
 #### Headphones after sleep
 
-~~Follow the guide [here](https://github.com/pmdevita/XPS15-7590-Hackintosh/issues/3)~~ UPDATE: Go to that guide and follow the instructions to uninstall, more details there. If you never installed ALCPlug298 then you should be good to go on my latest EFI
+If you were using ALCPlugFix, go follow the instructions [here](https://github.com/pmdevita/XPS15-7590-Hackintosh/issues/3) to remove it.
 
 #### Wi-FI
 
-I'm using the DW1820A. However, this card requires pin masking to enable full power management (literally, masking the pins on the card with tape), which is a hassle and a risk and therefore it is not a recommended card. Choose something else from [here](https://dortania.github.io/Wireless-Buyers-Guide/types-of-wireless-card/m2.html)). ~~You'll then want to disable the power management patch (pci-aspm) in the config.plist for Wi-Fi.~~ UPDATE: New versions of AirportBrcmFixup already do this automatically.
+The instructions above tell you how to edit the config based on your Wi-Fi card, here is some more specific information.
 
-For those of you who decide to go with this card anyways, the config already has a patch to disable power management so you can use the card. Do note that without full power management, the card pulls like another 4W so it's not great for battery life. If you want to try pin masking, google "DW1820A Hackintosh pin masking" and be ready for the challenge. If you pass though, you can use the PCI patch in the dw1820a config to enable power management. Pin masking seems to have no effect on Windows or Linux (but apparently this card is a little buggy in Linux so that's another reason to avoid it).
+I'm using the DW1820A. However, this card requires pin masking to enable full power management (literally, masking the pins on the card with tape), which is a hassle and a risk and therefore it is not a recommended card. Choose something else from [here](https://dortania.github.io/Wireless-Buyers-Guide/types-of-wireless-card/m2.html)).
+
+For those of you who decide to go with this card anyways, do note that without full power management, the card pulls like another 4W so it's not great for battery life. If you want to try pin masking, google "DW1820A Hackintosh pin masking" and be ready for the challenge.
 
 #### HDMI/Display Out
 
@@ -86,7 +101,7 @@ Here's the rundown:
 * HDMI port: No hotplugging, no audio
 * Display out over USB-C: Hotplugging allowed, no audio
 
-I can't make any guarantees since I don't know for sure but at some point I will be taking a look into patching WhateverGreen to completely fix this.
+I can't make any guarantees since I don't know for sure but at some point I will be taking a look into patching WhateverGreen to fix this.
 
 ## Sources
 
@@ -96,12 +111,14 @@ This would not have been possible without hundreds of hours of time from develop
 
 * bavariancake
 * daliansky
-* Other XPS 15 7590 config makers (I'll add them later)
+* giugrilli
+* geek5nan
 
-### DSDT/SSDTs
+### SSDT references
 
 * bavariancake
 * daliansky
+* Dortania guides
 
 ### Kexts
 
@@ -138,39 +155,3 @@ This would not have been possible without hundreds of hours of time from develop
 
 * USBInjectAll
 
-
-... and a few more I'll add later
-
-
-
-# Original Readme (from daliansky)
-
-## 电脑配置
-
-| 规格     | 详细信息                                                     |
-| -------- | ------------------------------------------------------------ |
-| 电脑型号 | DELL XPS 15 7590                                             |
-| 操作系统 | macOS Catalina 10.15 / macOS Mojave 10.14                    |
-| 处理器   | Intel(R) Core(TM) i7-9750H                                   |
-| 内存     | 16GB                                                         |
-| 硬盘     | KXG60ZNV1T02 NVMe TOSHIBA 1024GB                             |
-| 显卡     | Intel UHD Graphics 630(0x3e9b0000)                           |
-| 显示器   | 15.6" 1920x1080                                              |
-| 声卡     | Realtek ALC298                                               |
-| 网卡     | 更换为 [DW1820A](https://blog.daliansky.net/DW1820A_BCM94350ZAE-driver-inserts-the-correct-posture.html) |
-
-## 截屏
-
-![1](screenshot/1.png)
-
-![2](screenshot/2.png)
-
-![3](screenshot/3.png)
-
-![4](screenshot/4.png)
-
-![5](screenshot/5.png)
-
-![6](screenshot/6.png)
-
-![7](screenshot/7.png)
