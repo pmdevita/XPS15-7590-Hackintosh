@@ -20,7 +20,7 @@
 				<key>Path</key>
 				<string>SSDT-ALC298.aml</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -92,7 +92,7 @@
 				<key>Path</key>
 				<string>SSDT-HDAU.aml</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -100,7 +100,7 @@
 				<key>Path</key>
 				<string>SSDT-HDEF.aml</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -192,9 +192,9 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-PTSWAK.aml</string>
+				<string>SSDT-GPUWAK.aml</string>
 				<key>Path</key>
-				<string>SSDT-PTSWAK.aml</string>
+				<string>SSDT-GPUWAK.aml</string>
 				<key>Enabled</key>
 				<true/>
 			</dict>
@@ -405,6 +405,58 @@
 				<key>TableSignature</key>
 				<data>AAAAAA==</data>
 			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>_PTS to ZPTS</string>
+				<key>Count</key>
+				<integer>0</integer>
+				<key>TableLength</key>
+				<integer>0</integer>
+				<key>TableSignature</key>
+				<data>AAAAAA==</data>
+				<key>OemTableId</key>
+				<data>AAAAAA==</data>
+				<key>Mask</key>
+				<data></data>
+				<key>Enabled</key>
+				<true/>
+				<key>Replace</key>
+				<data>FEkEWlBUUwE=</data>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Skip</key>
+				<integer>0</integer>
+				<key>ReplaceMask</key>
+				<data></data>
+				<key>Find</key>
+				<data>FEkEX1BUUwE=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>_WAK to ZWAK</string>
+				<key>Count</key>
+				<integer>0</integer>
+				<key>TableLength</key>
+				<integer>0</integer>
+				<key>TableSignature</key>
+				<data>AAAAAA==</data>
+				<key>OemTableId</key>
+				<data>AAAAAA==</data>
+				<key>Mask</key>
+				<data></data>
+				<key>Enabled</key>
+				<true/>
+				<key>Replace</key>
+				<data>FDlaV0FLAQ==</data>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Skip</key>
+				<integer>0</integer>
+				<key>ReplaceMask</key>
+				<data></data>
+				<key>Find</key>
+				<data>FDlfV0FLAQ==</data>
+			</dict>
 		</array>
 		<key>Quirks</key>
 		<dict>
@@ -519,7 +571,7 @@
 			</dict>
 			<key>PciRoot(0)/Pci(0x1f,3)</key>
 			<dict>
-				<key>layout-id</key>
+				<key>#layout-id</key>
 				<integer>30</integer>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1c,0x0)/Pci(0x0)</key>
@@ -1099,7 +1151,7 @@
 				<key>MaxKernel</key>
 				<string></string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 				<key>MinKernel</key>
@@ -1142,7 +1194,7 @@
 			<key>AppleXcpmForceBoost</key>
 			<false/>
 			<key>CustomSMBIOSGuid</key>
-			<false/>
+			<true/>
 			<key>DisableIoMapper</key>
 			<true/>
 			<key>DisableLinkeditJettison</key>
@@ -1198,9 +1250,9 @@
 			<key>PickerAudioAssist</key>
 			<false/>
 			<key>PickerMode</key>
-			<string>Builtin</string>
+			<string>External</string>
 			<key>PickerVariant</key>
-			<string>Auto</string>
+			<string>Modern</string>
 			<key>PollAppleHotKeys</key>
 			<false/>
 			<key>ShowPicker</key>
@@ -1227,7 +1279,7 @@
 			<key>SysReport</key>
 			<false/>
 			<key>Target</key>
-			<integer>67</integer>
+			<integer>3</integer>
 		</dict>
 		<key>Entries</key>
 		<array>
@@ -1276,7 +1328,7 @@
 				<key>TextMode</key>
 				<false/>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Arguments</key>
 				<string></string>
 				<key>Path</key>
@@ -1294,7 +1346,7 @@
 				<key>TextMode</key>
 				<false/>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Arguments</key>
 				<string></string>
 				<key>Path</key>
@@ -1312,7 +1364,7 @@
 				<key>TextMode</key>
 				<false/>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Arguments</key>
 				<string></string>
 				<key>Path</key>
@@ -1330,7 +1382,7 @@
 				<key>TextMode</key>
 				<false/>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Arguments</key>
 				<string></string>
 				<key>Path</key>
@@ -1348,7 +1400,7 @@
 				<key>TextMode</key>
 				<false/>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Arguments</key>
 				<string></string>
 				<key>Path</key>
@@ -1366,7 +1418,7 @@
 				<key>TextMode</key>
 				<false/>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Arguments</key>
 				<string></string>
 				<key>Path</key>
@@ -1384,7 +1436,7 @@
 				<key>TextMode</key>
 				<false/>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Arguments</key>
 				<string></string>
 				<key>Path</key>
@@ -1402,7 +1454,7 @@
 				<key>TextMode</key>
 				<false/>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Arguments</key>
 				<string></string>
 				<key>Path</key>
@@ -1420,7 +1472,7 @@
 				<key>TextMode</key>
 				<false/>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Arguments</key>
 				<string></string>
 				<key>Path</key>
@@ -1438,7 +1490,7 @@
 				<key>TextMode</key>
 				<false/>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Arguments</key>
 				<string></string>
 				<key>Path</key>
@@ -1456,7 +1508,7 @@
 				<key>TextMode</key>
 				<false/>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Arguments</key>
 				<string></string>
 				<key>Path</key>
@@ -1487,7 +1539,7 @@
 				<key>SystemAudioVolume</key>
 				<data>Rg==</data>
 				<key>boot-args</key>
-				<string>-v debug=0x100 keepsyms=1 agdpmod=vit9696 brcmfx-country=#a -wegnoegpu -igfxtypec -alcdbg -liludbg alcdelay=1000 -brkeysdbg</string>
+				<string>-v debug=0x100 keepsyms=1 agdpmod=vit9696 brcmfx-country=#a -wegnoegpu -igfxtypec -alcdbg -liludbg alcid=30 alcdelay=1000 -brkeysdbg</string>
 				<key>run-efi-updater</key>
 				<string>No</string>
 			</dict>
@@ -1579,7 +1631,7 @@
 		<key>UpdateSMBIOS</key>
 		<true/>
 		<key>UpdateSMBIOSMode</key>
-		<string>Create</string>
+		<string>Custom</string>
 		<key>UseRawUuidEncoding</key>
 		<false/>
 	</dict>
@@ -1640,7 +1692,6 @@
 		<true/>
 		<key>Drivers</key>
 		<array>
-			<string>AudioDxe.efi</string>
 			<string>OpenCanopy.efi</string>
 			<string>OpenHfsPlus.efi</string>
 			<string>OpenPartitionDxe.efi</string>

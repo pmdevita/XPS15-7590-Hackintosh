@@ -21,31 +21,31 @@ DefinitionBlock ("", "SSDT", 1, "hack", "_ALC298", 0)
                 {
                     // 0x18 SET_PIN_WIDGET_CONTROL 0x22
                     "Command", Buffer() { 0x01, 0x87, 0x07, 0x22 },
-                    "On Init", ">y",
-                    "On Sleep", ">n",
+                    "On Init", ">n",
+                    "On Sleep", ">y",
                     "On Wake", ">y",
                 },
                 Package()
                 {
                     // 0x1a SET_PIN_WIDGET_CONTROL 0x23
                     "Command", Buffer() { 0x01, 0xa7, 0x07, 0x23 },
-                    "On Init", ">y",
-                    "On Sleep", ">n",
+                    "On Init", ">n",
+                    "On Sleep", ">y",
                     "On Wake", ">y",
                 },
                 Package()
                 {
                     // 0x21 SET_UNSOLICITED_ENABLE 0x83
                     "Command", Buffer() { 0x02, 0x17, 0x08, 0x83 },
-                    "On Init", ">y",
-                    "On Sleep", ">n",
+                    "On Init", ">n",
+                    "On Sleep", ">y",
                     "On Wake", ">y",
                 },
             },
-            "Perform Reset", ">n",
+            "Perform Reset", ">y",
             //"Perform Reset on External Wake", ">n", // enable if using AppleALC
-            "Send Delay", 10,
-            "Sleep Nodes", ">n",
+            "Send Delay", 15000,
+            "Sleep Nodes", ">y",
         },
     })
 }
