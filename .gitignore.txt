@@ -1,1 +1,1 @@
-OC/Resources/
+OC/Resources/*
