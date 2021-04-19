@@ -68,7 +68,7 @@ If you have any info on how to fix this, open an issue.
 
 [See here](https://github.com/pmdevita/XPS15-7590-Hackintosh/issues/2)
 
-#### Battery Life
+### Battery Life
 
 Idle power draw is comparable to Windows if you disable SD Card, Thunderbolt(?), and USB PowerShare in the BIOS (SD Card and USB PowerShare each add about a watt so they are quite useful to disable). 
 * [Disable CFG Lock](https://github.com/pmdevita/XPS15-7590-Hackintosh/issues/2)
@@ -76,11 +76,11 @@ Idle power draw is comparable to Windows if you disable SD Card, Thunderbolt(?),
 
 At about half brightness and idle, I was able to get down to about 5.2W which is pretty good for a Hackintosh laptop from what I understand. Windows gets about 5.1W when idle on my computer so it's pretty close.
 
-#### Headphones after sleep
+### Headphones after sleep
 
 If you were using ALCPlugFix, go follow the instructions [here](https://github.com/pmdevita/XPS15-7590-Hackintosh/issues/3) to remove it.
 
-#### Wi-FI
+### Wi-FI
 
 The instructions above tell you how to edit the config based on your Wi-Fi card, here is some more specific information.
 
