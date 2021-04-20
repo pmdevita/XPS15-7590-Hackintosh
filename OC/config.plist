@@ -619,7 +619,7 @@
 				<key>Comment</key>
 				<string></string>
 				<key>MaxKernel</key>
-				<string></string>
+				<string>19.9.9</string>
 				<key>Enabled</key>
 				<true/>
 				<key>PlistPath</key>
