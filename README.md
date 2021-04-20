@@ -57,6 +57,8 @@ If you have any info on how to fix this, open an issue.
 
 2. Use GenSMBIOS to create new SMBIOS keys for your config. I recommend using a `MacbookPro16,1` profile.
 
+3. Add the UI files/resources per the [Dortania guide](https://dortania.github.io/OpenCore-Post-Install/cosmetic/gui.html#setting-up-opencore-s-gui) (or disable it)
+
 3. Specific notes for certain hardware
 
 - WiFi - If you are using the DW1820A card and haven't masked your pins OR if you are not using this card at all, delete the `brcmfx-aspm` property.
