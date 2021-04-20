@@ -113,7 +113,7 @@
 							<key>Comment</key>
 							<string>0x18 SET_PIN_WIDGET_CONTROL 0x22</string>
 							<key>On Init</key>
-							<false/>
+							<true/>
 							<key>On Sleep</key>
 							<false/>
 							<key>On Wake</key>
